@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9ec862f1c96489246c081e400b2f7a7",
+    "content-hash": "023e9bf9f93e521d56e4261f61f1c551",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2892,6 +2892,106 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/user_registrationpassword",
                 "issues": "http://drupal.org/project/issues/user_registrationpassword"
+            }
+        },
+        {
+            "name": "drupal/year",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/year.git",
+                "reference": "1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/year-1.0.0.zip",
+                "reference": "1.0.0",
+                "shasum": "ba9950bcbece0f6c350edfe0c22a731d2d6addaf"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0",
+                    "datestamp": "1676938835",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Caldwell (justcaldwell)",
+                    "homepage": "https://www.drupal.org/u/justcaldwell",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Custom integer field for collecting only the year portion of a date.",
+            "homepage": "https://drupal.org/project/year",
+            "keywords": [
+                "Date",
+                "Drupal",
+                "Fields",
+                "Year"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/year",
+                "issues": "https://www.drupal.org/project/issues/year"
+            }
+        },
+        {
+            "name": "drupal/yearonly",
+            "version": "9.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/yearonly.git",
+                "reference": "9.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/yearonly-9.1.0.zip",
+                "reference": "9.1.0",
+                "shasum": "e699dc7175435ad57536392466330c5e7c8696cb"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "9.1.0",
+                    "datestamp": "1670608552",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "justcaldwell",
+                    "homepage": "https://www.drupal.org/user/290069"
+                },
+                {
+                    "name": "sharma.amitt16",
+                    "homepage": "https://www.drupal.org/user/2629679"
+                }
+            ],
+            "description": "Provide field to collect year only.",
+            "homepage": "https://www.drupal.org/project/yearonly",
+            "support": {
+                "source": "https://git.drupalcode.org/project/yearonly"
             }
         },
         {

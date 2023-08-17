@@ -32,6 +32,8 @@
         "drupal/smtp": "^1.2",
         "drupal/user_activity_log": "^1.7",
         "drupal/user_registrationpassword": "^2.0",
+        "drupal/year": "^1.0",
+        "drupal/yearonly": "^9.1",
         "drush/drush": "^11.5"
     },
     "conflict": {
