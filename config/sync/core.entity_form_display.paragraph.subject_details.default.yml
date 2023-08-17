@@ -1,0 +1,23 @@
+uuid: 1b34a5e1-a587-4a19-aaa9-c77d572f765a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.subject_details.field_s
+    - paragraphs.paragraphs_type.subject_details
+id: paragraph.subject_details.default
+targetEntityType: paragraph
+bundle: subject_details
+mode: default
+content:
+  field_s:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

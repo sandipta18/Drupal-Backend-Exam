@@ -1,0 +1,29 @@
+uuid: 2b09f091-75ef-4162-b89a-f093628b3acc
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.node.stream.field_subject
+    - node.type.stream
+  module:
+    - user
+id: node.stream.default
+targetEntityType: node
+bundle: stream
+mode: default
+content:
+  field_subject:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

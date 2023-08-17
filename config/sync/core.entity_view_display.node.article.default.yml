@@ -1,5 +1,5 @@
 uuid: fae50e80-b580-4bc7-8b68-86de58d5c98d
-langcode: en
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -42,8 +42,8 @@ content:
     type: image
     label: hidden
     settings:
-      image_style: wide
       image_link: ''
+      image_style: wide
       image_loading:
         attribute: lazy
     third_party_settings: {  }

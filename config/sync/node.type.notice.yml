@@ -1,0 +1,18 @@
+uuid: 58d09b1d-46b8-4a94-b5de-d91945c22afc
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Notice
+type: notice
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

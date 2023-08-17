@@ -1,0 +1,31 @@
+uuid: 3869d166-5d69-4f80-bf20-22ea1fb7135a
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_subjects
+    - paragraphs.paragraphs_type.subject_details
+    - taxonomy.vocabulary.stream
+  module:
+    - entity_reference_revisions
+id: taxonomy_term.stream.field_subjects
+field_name: field_subjects
+entity_type: taxonomy_term
+bundle: stream
+label: Subjects
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      subject_details: subject_details
+    negate: 0
+    target_bundles_drag_drop:
+      subject_details:
+        weight: 2
+        enabled: true
+field_type: entity_reference_revisions

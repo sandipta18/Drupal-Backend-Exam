@@ -1,5 +1,5 @@
 uuid: dcc0ba35-c0e9-4564-93d1-31ee8f3ce1e5
-langcode: en
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -64,41 +64,7 @@ display:
       cache:
         type: tag
         options: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text_custom
-          label: ''
-          empty: true
-          content: 'No front page content has been created yet.<br/>Follow the <a target="_blank" href="https://www.drupal.org/docs/user_guide/en/index.html">User Guide</a> to start building your site.'
-          tokenize: false
-        node_listing_empty:
-          id: node_listing_empty
-          table: node
-          field: node_listing_empty
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: node_listing_empty
-          label: ''
-          empty: true
-        title:
-          id: title
-          table: views
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: title
-          label: ''
-          empty: true
-          title: Welcome!
+      empty: {  }
       sorts:
         sticky:
           id: sticky
@@ -285,8 +251,8 @@ display:
       path: rss.xml
       sitename_title: true
       displays:
-        page_1: page_1
-        default: ''
+        default: '0'
+        page_1: '0'
     cache_metadata:
       max-age: -1
       contexts:

@@ -1,0 +1,10 @@
+uuid: abac44f4-3836-4382-9c33-539c12e897ea
+langcode: en-gb
+status: true
+dependencies: {  }
+id: subject_details
+label: 'Subject Details'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

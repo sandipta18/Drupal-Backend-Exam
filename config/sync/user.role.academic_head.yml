@@ -1,0 +1,16 @@
+uuid: abba5969-563b-4736-b80c-cfb800b605d7
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.subjects_of_stream
+  module:
+    - taxonomy
+id: academic_head
+label: 'Academic Head'
+weight: 5
+is_admin: null
+permissions:
+  - 'create terms in subjects_of_stream'
+  - 'delete terms in subjects_of_stream'
+  - 'edit terms in subjects_of_stream'

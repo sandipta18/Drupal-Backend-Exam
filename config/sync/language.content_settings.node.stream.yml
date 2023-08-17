@@ -1,0 +1,11 @@
+uuid: 3ce67c9d-31cd-4818-b436-0cf575ae8bde
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - node.type.stream
+id: node.stream
+target_entity_type_id: node
+target_bundle: stream
+default_langcode: site_default
+language_alterable: false

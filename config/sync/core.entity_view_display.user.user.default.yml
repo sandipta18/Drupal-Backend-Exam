@@ -1,12 +1,17 @@
 uuid: 00677435-261c-442a-b0d5-4d538d409ea5
-langcode: en
+langcode: en-gb
 status: true
 dependencies:
   config:
-    - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - field.field.user.user.field_full_name
+    - field.field.user.user.field_joining_year
+    - field.field.user.user.field_passing_year
+    - field.field.user.user.field_phone_number
+    - field.field.user.user.field_stream
+    - field.field.user.user.field_year
   module:
-    - image
+    - datetime
+    - phone_number
     - user
 _core:
   default_config_hash: mZLyuWM9CQx2ZJVqFGSbzgFnHzudVbHBYmdU256A5Wk
@@ -15,19 +20,53 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
-  member_for:
+  field_full_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 5
     region: content
-  user_picture:
-    type: image
-    label: hidden
+  field_joining_year:
+    type: datetime_default
+    label: above
     settings:
-      image_style: thumbnail
-      image_link: content
-      image_loading:
-        attribute: lazy
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_passing_year:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_phone_number:
+    type: phone_number_international
+    label: above
+    settings:
+      as_link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_stream:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  member_for:
+    settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  field_year: true
   langcode: true

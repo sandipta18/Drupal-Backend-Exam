@@ -1,0 +1,41 @@
+uuid: c54d6464-bad6-4180-8f85-3b3ecce728cb
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.subjects_of_stream.field_assignments
+    - field.field.taxonomy_term.subjects_of_stream.field_study_material
+    - taxonomy.vocabulary.subjects_of_stream
+  module:
+    - file
+    - text
+id: taxonomy_term.subjects_of_stream.default
+targetEntityType: taxonomy_term
+bundle: subjects_of_stream
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_assignments:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_study_material:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true

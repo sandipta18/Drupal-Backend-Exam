@@ -1,0 +1,8 @@
+uuid: 5de3fd26-3106-4294-8e8c-ac0080bc0c5c
+langcode: en-gb
+status: true
+dependencies: {  }
+name: 'Subjects of Stream'
+vid: subjects_of_stream
+description: ''
+weight: 0
