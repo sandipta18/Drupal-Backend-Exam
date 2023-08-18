@@ -1,0 +1,70 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * @file
+ * Primary module hooks for login_alter module.
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function login_alter_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if($form_id == 'user_login_form') {
+    unset($form['name']);
+    unset($form['pass']);
+    unset($form['#validate']);
+    unset($form['#submit'][0]);
+    $form['fullname'] = [
+      '#type' => 'textfield',
+      '#title' => t('Full Name'),
+      '#required' => TRUE,
+    ];
+    $form['email'] = [
+      '#type' => 'email',
+      '#title' => t('Email'),
+      '#required' => TRUE,
+    ];
+    $form['password'] = [
+      '#type' => 'password',
+      '#title' => t('Password'),
+      '#required' => TRUE,
+    ];
+    $form['#validate'][] = 'login_alter_user_login_form_submit';
+  }
+}
+
+/**
+ * Custom Submit handler for the user login form alter.
+ *
+ * @param mixed $form
+ *   Holds the data associated with the form.
+ * @param FormStateInterface $form_state
+ *   Holds the current form state.
+ *
+ * @return Null|String
+ *   Logs in user if succesfull else throws error
+ */
+function login_alter_user_login_form_submit(&$form, FormStateInterface $form_state) {
+  $email = $form_state->getValue('email');
+  $password = $form_state->getValue('password');
+  $full_name = $form_state->getValue('fullname');
+  $users_by_name = \Drupal::entityTypeManager()->getStorage('user')->loadByProperties([
+    'field_full_name' => $full_name,
+  ]);
+  $users_by_email = \Drupal::entityTypeManager()->getStorage('user')->loadByProperties([
+    'mail' => $email,
+  ]);
+  $users = $users_by_email + $users_by_name;
+  if($users) {
+    $user = reset($users);
+    $is_valid = \Drupal::service('password')->check($password, $user->getPassword());
+    if($is_valid) {
+      user_login_finalize($user);
+      \Drupal::messenger()->addMessage('Logged in succesfully');
+    } else {
+      $form_state->setErrorByName('password', t('Invalid email or password'));
+    }
+  }
+}

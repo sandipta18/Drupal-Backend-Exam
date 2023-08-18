@@ -26,9 +26,6 @@ function notify_admin_user_register_submit(&$form, FormStateInterface $form_stat
   $datetime_value_joining = $joining_year[0]['value']->format('Y-m-d');
   $passing_year = $form_state->getValue('field_passing_year');
   $datetime_value_passing = $passing_year[0]['value']->format('Y-m-d');
-  $stream = $form_state->getValue('field_stream')[0]['target_id'];
-  $stream_term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($stream);
-  $stream_name = $stream_term->getName();
   $phone_number = $form_state->getValue('field_phone_number')[0]['value'];
   $message = "New user registration details:\n";
   $message .= "Full Name: $user_name\n";
@@ -36,7 +33,6 @@ function notify_admin_user_register_submit(&$form, FormStateInterface $form_stat
   $message .= "User Email: $user_mail\n";
   $message .= "Joining Year: $datetime_value_joining\n";
   $message .= "Passing Year: $datetime_value_passing\n";
-  $message .= "Stream: $stream_name\n";
   $message .= "Phone Number: $phone_number\n";
   $params = [
     'message' => $message,

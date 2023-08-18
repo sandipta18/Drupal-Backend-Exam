@@ -120,7 +120,6 @@ class ActiveUsersBlock extends BlockBase implements ContainerFactoryPluginInterf
     $build['content'] = [
       '#markup' => $user_names_string,
       '#cache' => [
-    // Add cache tag.
         'tags' => ['user_list:' . $target_role],
       ],
     ];
