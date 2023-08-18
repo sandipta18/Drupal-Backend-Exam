@@ -1,17 +1,17 @@
-uuid: 9ebcf425-522e-4f1b-a4c1-c20a44ae3a01
+uuid: 007ad86c-1c89-4ff1-96cf-6671e9e07a22
 langcode: en-gb
 status: true
 dependencies:
   module:
+    - datetime
     - node
-    - user
-id: user.field_stream
-field_name: field_stream
-entity_type: user
-type: entity_reference
+id: node.field_event_date
+field_name: field_event_date
+entity_type: node
+type: datetime
 settings:
-  target_type: node
-module: core
+  datetime_type: date
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

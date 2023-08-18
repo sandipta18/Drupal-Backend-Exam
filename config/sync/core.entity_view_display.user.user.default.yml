@@ -60,7 +60,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 2
+    weight: 6
     region: content
   member_for:
     settings: {  }

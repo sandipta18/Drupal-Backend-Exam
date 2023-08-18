@@ -1,18 +1,15 @@
-uuid: 2bae2207-d651-47a3-a8c5-ce374ce4b445
+uuid: 0a6ba533-f5e5-4247-9b53-e6985f350949
 langcode: en-gb
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.subjects_of_stream.field_assignments
-    - field.field.taxonomy_term.subjects_of_stream.field_study_material
-    - taxonomy.vocabulary.subjects_of_stream
+    - taxonomy.vocabulary.tags
   module:
-    - file
     - path
     - text
-id: taxonomy_term.subjects_of_stream.default
+id: taxonomy_term.tags.default
 targetEntityType: taxonomy_term
-bundle: subjects_of_stream
+bundle: tags
 mode: default
 content:
   description:
@@ -22,20 +19,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_assignments:
-    type: file_generic
-    weight: 101
-    region: content
-    settings:
-      progress_indicator: throbber
-    third_party_settings: {  }
-  field_study_material:
-    type: file_generic
-    weight: 102
-    region: content
-    settings:
-      progress_indicator: throbber
     third_party_settings: {  }
   langcode:
     type: language_select

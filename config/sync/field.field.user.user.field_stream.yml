@@ -1,30 +1,41 @@
-uuid: 3b6b690d-f394-47a6-8156-97b90dc9724b
+uuid: 9c0e3e7b-040c-43fe-87a6-f08ce08fd867
 langcode: en-gb
 status: true
 dependencies:
   config:
     - field.storage.user.field_stream
-    - taxonomy.vocabulary.stream
+    - node.type.stream
   module:
+    - multiple_registration
     - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form_required:
+      student: student
+      authenticated: 0
+      academic_head: 0
+    user_additional_register_form:
+      student: student
+      authenticated: 0
+      academic_head: 0
 id: user.user.field_stream
 field_name: field_stream
 entity_type: user
 bundle: user
 label: Stream
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:node'
   handler_settings:
     target_bundles:
       stream: stream
     sort:
-      field: name
-      direction: asc
+      field: _none
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

@@ -6,7 +6,15 @@ dependencies:
     - field.storage.user.field_passing_year
   module:
     - datetime
+    - multiple_registration
     - user
+third_party_settings:
+  multiple_registration:
+    user_additional_register_form_required: null
+    user_additional_register_form:
+      student: student
+      authenticated: 0
+      academic_head: 0
 id: user.user.field_passing_year
 field_name: field_passing_year
 entity_type: user
