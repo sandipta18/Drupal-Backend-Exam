@@ -22,9 +22,9 @@ function notify_admin_user_register_submit(&$form, FormStateInterface $form_stat
   $user_name = $form_state->getValue('name');
   $full_name = $form_state->getValue('field_full_name')[0]['value'];
   $user_mail = $form_state->getValue('mail');
-  $joining_year = $form_state->getValue('field_joining_year');
+  $joining_year = $form_state->getValue('field_joining_year') ?? NULL;
   $datetime_value_joining = $joining_year[0]['value']->format('Y-m-d');
-  $passing_year = $form_state->getValue('field_passing_year');
+  $passing_year = $form_state->getValue('field_passing_year') ?? NULL;
   $datetime_value_passing = $passing_year[0]['value']->format('Y-m-d');
   $phone_number = $form_state->getValue('field_phone_number')[0]['value'];
   $message = "New user registration details:\n";
