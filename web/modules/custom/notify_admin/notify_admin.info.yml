@@ -1,0 +1,5 @@
+name: notify_admin
+type: module
+description: Provides additional functionality for the site.
+package: Custom Module
+core_version_requirement: ^9 || ^10

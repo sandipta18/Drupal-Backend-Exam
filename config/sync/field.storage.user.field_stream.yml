@@ -1,0 +1,20 @@
+uuid: 9ebcf425-522e-4f1b-a4c1-c20a44ae3a01
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - node
+    - user
+id: user.field_stream
+field_name: field_stream
+entity_type: user
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

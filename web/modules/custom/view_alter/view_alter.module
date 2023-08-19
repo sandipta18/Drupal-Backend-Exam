@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for view_alter module.
+ */
+
+use Drupal\Core\Cache\CacheBackendInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function view_alter_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  if ($view->id() === 'admin_view') {
+    if (!empty($view->exposed_data['field_year_value'])) {
+      $selected_year = $view->exposed_data['field_year_value'];
+      if ($selected_year !== '') {
+        $expression = "DATE_FORMAT(node_field_data.created, '%Y') = :year";
+        $expression = "YEAR(FROM_UNIXTIME(node_field_data.created)) = :year";
+        unset($query->where[1]['conditions'][2]);
+        $query->addWhereExpression(1, $expression, [':year' => "$selected_year"]);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_form_alter().
+ */
+function view_alter_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_state->get('view')->id() == 'admin') {
+    $cid = 'node:article:year';
+    $data = \Drupal::cache()->get($cid);
+    $db = \Drupal::database();
+    $query = $db->select('node_field_data', 't')
+      ->fields('t', ['created'])
+      ->execute()->fetchAll();
+    $dates = [];
+    foreach ($query as $data) {
+      $dates[] = $data->created;
+    }
+    foreach ($dates as $date) {
+      $year = date('Y-m-d H:i:s', $date);
+      $date = new DrupalDateTime($year, new DateTimeZone('UTC'));
+      $year = $date->format('Y');
+      $year_options[$year] = $year;
+    }
+    $cache_tags = ['node:article:year'];
+    \Drupal::cache()->set($cid, $year_options, CacheBackendInterface::CACHE_PERMANENT, $cache_tags);
+    $year_options = ['- Any Year -'] + $year_options;
+    $form['field_year_value']['#options'] = $year_options;
+    $form['field_year_value']['#type'] = 'select';
+    $form['field_year_value']['#required'] = TRUE;
+  }
+}

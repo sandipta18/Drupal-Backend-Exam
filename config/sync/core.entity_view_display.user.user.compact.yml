@@ -1,13 +1,16 @@
 uuid: 7edfb915-8b44-47ca-9b02-39a4e8a55e79
-langcode: en
+langcode: en-gb
 status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
-    - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - field.field.user.user.field_full_name
+    - field.field.user.user.field_joining_year
+    - field.field.user.user.field_passing_year
+    - field.field.user.user.field_phone_number
+    - field.field.user.user.field_stream
+    - field.field.user.user.field_year
   module:
-    - image
     - user
 _core:
   default_config_hash: 00zr_RBdTjPjBGITD3h4c1ESQZimjdVCcHGt1trLqIY
@@ -15,18 +18,13 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content:
-  user_picture:
-    type: image
-    label: hidden
-    settings:
-      image_style: thumbnail
-      image_link: content
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 0
-    region: content
+content: {  }
 hidden:
+  field_full_name: true
+  field_joining_year: true
+  field_passing_year: true
+  field_phone_number: true
+  field_stream: true
+  field_year: true
   langcode: true
   member_for: true

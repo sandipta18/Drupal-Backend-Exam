@@ -1,5 +1,5 @@
 uuid: 69811c78-6f53-4741-ae17-980f7e123104
-langcode: en
+langcode: en-gb
 status: true
 dependencies:
   config:
@@ -113,4 +113,8 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  publish_on: true
+  publish_state: true
+  unpublish_on: true
+  unpublish_state: true

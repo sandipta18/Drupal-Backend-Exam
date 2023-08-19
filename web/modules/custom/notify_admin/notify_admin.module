@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for notify_admin module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for user_register_form.
+ */
+function notify_admin_form_user_register_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Adding a custom handler.
+  $form['actions']['submit']['#submit'][] = 'notify_admin_user_register_submit';
+}
+
+/**
+ * Implements user_register_submit().
+ */
+function notify_admin_user_register_submit(&$form, FormStateInterface $form_state) {
+  $user_name = $form_state->getValue('name');
+  $full_name = $form_state->getValue('field_full_name')[0]['value'];
+  $user_mail = $form_state->getValue('mail');
+  $joining_year = $form_state->getValue('field_joining_year') ?? NULL;
+  $datetime_value_joining = $joining_year[0]['value']->format('Y-m-d');
+  $passing_year = $form_state->getValue('field_passing_year') ?? NULL;
+  $datetime_value_passing = $passing_year[0]['value']->format('Y-m-d');
+  $phone_number = $form_state->getValue('field_phone_number')[0]['value'];
+  $message = "New user registration details:\n";
+  $message .= "Full Name: $user_name\n";
+  $message .= "User Name: $full_name\n";
+  $message .= "User Email: $user_mail\n";
+  $message .= "Joining Year: $datetime_value_joining\n";
+  $message .= "Passing Year: $datetime_value_passing\n";
+  $message .= "Phone Number: $phone_number\n";
+  $params = [
+    'message' => $message,
+  ];
+  $admin_email = \Drupal::config('system.site')->get('mail');
+  $mailManager = \Drupal::service('plugin.manager.mail');
+  $module = 'notify_admin';
+  $key = 'register_user';
+  $to = $admin_email;
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
+  $send = TRUE;
+  $result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+}
+
+/**
+ * Implements hook_mail().
+ */
+function notify_admin_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+
+  switch ($key) {
+    case 'register_user':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('New User Registered');
+      $message['body'][] = $params['message'];
+      break;
+  }
+}

@@ -1,0 +1,23 @@
+uuid: 20410e51-beaa-440c-8331-0b77ba15755f
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.stream.field_subject
+    - node.type.stream
+  module:
+    - user
+id: node.stream.teaser
+targetEntityType: node
+bundle: stream
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_subject: true
+  langcode: true

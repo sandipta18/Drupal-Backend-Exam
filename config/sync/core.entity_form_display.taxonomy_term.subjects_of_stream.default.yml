@@ -1,0 +1,72 @@
+uuid: 2bae2207-d651-47a3-a8c5-ce374ce4b445
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.subjects_of_stream.field_assignments
+    - field.field.taxonomy_term.subjects_of_stream.field_study_material
+    - taxonomy.vocabulary.subjects_of_stream
+  module:
+    - file
+    - path
+    - text
+id: taxonomy_term.subjects_of_stream.default
+targetEntityType: taxonomy_term
+bundle: subjects_of_stream
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_assignments:
+    type: file_generic
+    weight: 101
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_study_material:
+    type: file_generic
+    weight: 102
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  publish_on: true
+  publish_state: true
+  unpublish_on: true
+  unpublish_state: true

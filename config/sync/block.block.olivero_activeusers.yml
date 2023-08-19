@@ -1,0 +1,25 @@
+uuid: df0aae9f-cd00-4677-bd77-dd66aeb9e42a
+langcode: en-gb
+status: true
+dependencies:
+  module:
+    - active_users
+    - system
+  theme:
+    - olivero
+id: olivero_activeusers
+theme: olivero
+region: sidebar
+weight: 0
+provider: null
+plugin: active_users_active_users
+settings:
+  id: active_users_active_users
+  label: 'Active Users'
+  label_display: visible
+  provider: active_users
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

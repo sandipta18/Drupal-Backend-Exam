@@ -1,0 +1,23 @@
+api_service.example:
+  path: '/api-service'
+  defaults:
+    _title: 'All Students'
+    _controller: '\Drupal\api_service\Controller\ApiServiceController::build'
+  requirements:
+    _permission: 'access content'
+
+api_service.stream:
+  path: '/api-service/{stream}'
+  defaults:
+    _title: 'Student with stream'
+    _controller: '\Drupal\api_service\Controller\ApiServiceController::streamBuild'
+  requirements:
+    _permission: 'access content'
+
+api_service.year:
+  path: '/api/{year}'
+  defaults:
+    _title: 'Student with Year'
+    _controller: '\Drupal\api_service\Controller\ApiServiceController::yearBuild'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,24 @@
+uuid: b00a1d96-3826-41da-bc8d-9b4788afb92c
+langcode: en-gb
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.notice
+  module:
+    - text
+id: node.notice.body
+field_name: body
+entity_type: node
+bundle: notice
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

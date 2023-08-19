@@ -2,8 +2,8 @@ _core:
   default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
 langcode: en-gb
 uuid: 7a35190a-8908-4925-a571-486f56265953
-name: Drupal
-mail: ''
+name: 'Drupal Backend Exam'
+mail: sandiptasardar99@gmail.com
 slogan: ''
 page:
   403: ''
@@ -12,3 +12,4 @@ page:
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en-gb
+mail_notification: ''

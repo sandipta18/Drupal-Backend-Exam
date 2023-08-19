@@ -1,0 +1,15 @@
+roles:
+  academic_head:
+    path: /user/head/register
+    url: /user/register/academic_head
+    redirect_path: ''
+    hidden: 0
+    form_mode_register: default
+    form_mode_edit: default
+  student:
+    path: /user/register
+    url: /user/register/student
+    redirect_path: ''
+    hidden: 0
+    form_mode_register: register
+    form_mode_edit: default

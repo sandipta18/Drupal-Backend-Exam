@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for node_unpublish module.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
+
+/**
+ * Implements hook_cron().
+ */
+function node_unpublish_cron() {
+  $query = \Drupal::entityQuery('node')
+    ->condition('type', 'notice')
+    ->accessCheck(FALSE);
+  $nids = $query->execute();
+  if (!empty($nids)) {
+    foreach ($nids as $nid) {
+      $node = Node::load($nid);
+      if ($node) {
+        $eventTimestamp = $node->get('field_event_date')->value;
+        $todayDate = date('Y-m-d');
+        if ($eventTimestamp < $todayDate) {
+          $node->delete();
+          \Drupal::messenger()->addMessage('Nodes with Event date passed todays
+          date are deleted');
+        }
+      }
+    }
+  }
+
+  $user = \Drupal::entityQuery('user')
+    ->condition('status', 1)
+    ->condition('roles', 'student')
+    ->accessCheck(FALSE);
+  $uids = $user->execute();
+  if (!empty($uids)) {
+    foreach ($uids as $uid) {
+      $user = User::load($uid);
+      if ($user) {
+        $graduationTimestamp = $user->get('field_passing_year')->value;
+        $sixMonthsAgo = strtotime('-6 months');
+        $sixMonthsAgoDate = date('Y-m-d', $sixMonthsAgo);
+        if ($graduationTimestamp < $sixMonthsAgoDate) {
+          $user->delete();
+        }
+      }
+    }
+  }
+
+}
